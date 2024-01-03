@@ -25,7 +25,7 @@
             type="button"
             class="text-[#fff] bg-[#000C24] py-4 px-6 rounded-sm mt-12"
           >
-            Download CV
+            Download CV <i class="zmdi zmdi-download"></i>
           </button>
         </a>
       </div>
