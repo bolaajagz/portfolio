@@ -1,5 +1,6 @@
 <template>
-  <main class="container mx-auto" v-if="sliderComponent === 0">
+  <transition name="fade" mode="out-in">
+  <main class="container mx-auto" v-if="sliderComponent === 0" >
     <div class="md:flex gap-60 items-center">
       <div>
         <img src="../../assets/BG-vector.png" alt="skills-vector" class="" />
@@ -40,6 +41,7 @@
       </div>
     </div>
   </main>
+  
 
   <main class="container mx-auto"  v-else-if="sliderComponent === 1" >
     <div class="md:flex gap-60 items-center">
@@ -124,6 +126,7 @@
       </div>
     </div>
   </main>
+</transition>
 </template>
 
 <script>
@@ -142,4 +145,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.fade-enter-active, .fade-leave-active {
+  /* transition: opacity 1s, transform 1s; */
+  transition: opacity 1s ease-in-out 0.5s, transform 1s ease-in-out 0.3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 1;
+  transform: translateX(100%);
+  /* transform: translateX(-20px); */
+
+}
+</style>

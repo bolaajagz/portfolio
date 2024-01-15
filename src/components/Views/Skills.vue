@@ -3,7 +3,7 @@
     <div class="conatiner mx-auto">
       <div class="md:flex justify-around">
         <div class="mt-10">
-          <h1 class="text-[#F44336] font-semibold text-2xl mx-5 my-5">Skills</h1>
+          <h1 class="text-[#F44336] font-semibold text-4xl mx-5 my-5">Skills</h1>
           <p class="text-[#000C24] text-2xl leading-10 max-w-[617px] text-center my-12">
             I enjoy creating things that live on the internet, whether that be
             websites, applications, or anything in between.
