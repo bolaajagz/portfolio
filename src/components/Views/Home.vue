@@ -1,78 +1,84 @@
 <template>
   <header class="background h-[100vh]">
     <nav class="text-[#928A97] container mx-auto p-3">
-      <ul class="flex items-center font-medium text-lg px-4">
-        <span class="nav-background flex items-center justify-center">
-          <li class="text-[#F44336] cursor-pointer">Home</li>
+      <ul ref="navItems" class="flex items-center font-medium px-4 text-lg">
+        <!-- <span class="nav-background flex items-center justify-center">
+          <RouterLink to="/" class="text-[#F44336] cursor-pointer">Home</RouterLink>
         </span>
-        <li class="pl-3 cursor-pointer"><a href="#About">About</a></li>
-        <li class="pl-3 cursor-pointer">Skills</li>
-        <li class="pl-3 cursor-pointer">Works</li>
-        <li class="pl-3 cursor-pointer">Contacts</li>
+        <RouterLink to="/About" class="pl-3 cursor-pointer">About</RouterLink>
+        <RouterLink to="/Skills" class="pl-3 cursor-pointer">Skills</RouterLink>
+        <RouterLink to="/Works" class="pl-3 cursor-pointer">Works</RouterLink>
+        <RouterLink to="/Contact" class="pl-3 cursor-pointer">Contacts</RouterLink> -->
+
+        <span class="nav-background flex items-center justify-center">
+          <li ref="navItemHome" class="text-[#F44336] cursor-pointer md:text-3xl">Home</li>
+        </span>
+        <li ref="navItemAbout"  class="pl-3 cursor-pointer md:text-3xl">About</li>
+        <li ref="navItemSkills" class="pl-3 cursor-pointer md:text-3xl">Skills</li>
+        <li ref="navItemWorks" class="pl-3 cursor-pointer md:text-3xl">Works</li>
+        <li ref="navItemContacts" class="pl-3 cursor-pointer md:text-3xl">Contacts</li>
         <img src="" />
       </ul>
     </nav>
 
-    <div class="container mx-auto pl-16 mt-20">
-      <div class="text-[#928A97] text-4xl heading mr-2">Hello There!</div>
-      <div class="heading">
-        <span class="text-[#928A97] text-4xl heading">My Name is</span>
+    <div ref="heading" class="container mx-auto pl-16  md:mt-48 mt-12">
+      <div class="text-[#928A97] text-4xl mr-2">Hey There!</div>
+      <div class="hading mt-10">
+        <span class="text-[#928A97] text-4xl">I'm</span>
       </div>
     </div>
 
-    <div class="animated-title container mx-auto pl-16 mt-48 text-white text-8xl">
+    <div
+      class="animated-title container mx-auto pl-16 md:mt-38 mt-12  text-white md:text-8xl text-7xl"
+    >  
       <div class="text-top">
         <div>
           <span>Adebola Ajagunna</span>
-          <span class="text-[#fff] text-5xl py-2 px-2">FrontEnd Developer</span>
+          <span class="text-[#fff] text-5xl py-4 px-2">A Frontend Developer</span>
         </div>
       </div>
       <div class="text-bottom">
         <div class="flex items-center my-2 py-2">
           <img
-          src="../../assets/ant-design_twitter-circle-filled.png"
-          alt="twitter"
-          class="px-2"
-        />
-        <img
-          src="../../assets/ant-design_github-filled.png"
-          alt="github"
-          class="px-2"
-        />
-        <img
-          src="../../assets/entypo-social_linkedin-with-circle.png"
-          alt="linkedin"
-          class="px-2"
-        /></div>
+            src="../../assets/ant-design_twitter-circle-filled.png"
+            alt="twitter"
+            class="px-2"
+          />
+          <img
+            src="../../assets/ant-design_github-filled.png"
+            alt="github"
+            class="px-2"
+          />
+          <img
+            src="../../assets/entypo-social_linkedin-with-circle.png"
+            alt="linkedin"
+            class="px-2"
+          />
+        </div>
       </div>
+      
     </div>
-
-    <!-- <div class="text-[#928A97] container mx-auto pl-16 mt-56">
-      <h1 class="uppercase font-bold tracking-wide text-5xl my-2 px-2">
-        Adebola Ajagunna
-      </h1>
-      <P class="text-[#fff] text-2xl font-semibold px-2">Front-end Developer</P>
-      <div class="flex items-center my-2">
-        <img
-          src="../../assets/ant-design_twitter-circle-filled.png"
-          alt="twitter"
-          class="px-2"
-        />
-        <img
-          src="../../assets/ant-design_github-filled.png"
-          alt="github"
-          class="px-2"
-        />
-        <img
-          src="../../assets/entypo-social_linkedin-with-circle.png"
-          alt="linkedin"
-          class="px-2"
-        />
-      </div>
-    </div> -->
   </header>
 </template>
 
+<script>
+import {gsap} from "gsap";
+export default {
+  mounted() {
+    var tl = gsap.timeline({ repeatDelay: 1});
+    tl.from(this.$refs.navItems, { duration: 2, opacity: 0 });
+
+    tl.from(this.$refs.heading, { duration: 2, y: -300, ease: 'power1.inOut', opacity: 0 });
+
+    tl.from(this.$refs.navItemHome, { duration: 1, y: -70, ease: 'bounce.out' });
+    tl.from(this.$refs.navItemAbout, { duration: 1, y: -70, ease: 'bounce.out'});
+    tl.from(this.$refs.navItemSkills, { duration: 1, y: -70, ease: 'bounce.out' });
+    tl.from(this.$refs.navItemWorks, { duration: 1, y: -70, ease: 'bounce.out'  });
+    tl.from(this.$refs.navItemContacts, { duration: 1, y: -70, ease: 'bounce.out'  });
+
+  },
+};
+</script>
 <style scoped>
 .background {
   background-image: url("../../assets/Group 88.png");
@@ -85,28 +91,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 5rem;
-  width: 5rem;
+  height: 6rem;
+  width: 6rem;
 }
 
 /* Animation Styles For Introduction*/
-.heading {
-  display: inline-block;
-  white-space: nowrap;
-}
-.heading:first-of-type {
-  animation: showup 7s infinite;
-}
-
-.heading:last-of-type {
-  width: 0px;
-  animation: reveal 7s infinite;
-}
-
-.heading:last-of-type span {
-  margin-left: -355px;
-  animation: slidein 7s infinite;
-}
 
 @keyframes showup {
   0% {
@@ -161,13 +150,24 @@
 
 /* Name Animation */
 @keyframes showTopText {
-  0% { transform: translate3d(0, 100%, 0); }
-  40%, 60% { transform: translate3d(0, 50%, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 @keyframes showBottomText {
-  0% { transform: translate3d(0, -100%, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .animated-title > div {

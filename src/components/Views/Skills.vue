@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="conatiner mx-auto">
+    <div class="container mx-auto">
       <div class="md:flex justify-around">
         <div class="mt-10">
           <h1 class="text-[#F44336] font-semibold text-4xl mx-5 my-5">Skills</h1>
